@@ -4,3 +4,6 @@ PyQt based calculator (based on https://studyingrabbit.tistory.com/23)
 ## Goals
 * 깃 실습
 * README 작성
+
+## Getting Started
+* pyqt install
