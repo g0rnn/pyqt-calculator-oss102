@@ -1,9 +1,13 @@
 # pyqt-calculator-oss102
-PyQt based calculator (based on https://studyingrabbit.tistory.com/23)
+PyQt5 based calculator - Used for practice
+(based on https://studyingrabbit.tistory.com/23)
 
 ## Goals
-* 깃 실습
-* README 작성
 
-## Getting Started
-* pyqt install
+* github 저장소 생성 및 관리 실습
+* PyQt5 기반 계산기 기능 및 사용방법 개선
+
+## Getting started
+
+* pyqt5 모듈 설치 (python -m pip install pyqt5)
+* 파이썬 파일 실행 (python calculator_main.py)
