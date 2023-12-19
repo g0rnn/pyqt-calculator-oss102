@@ -12,7 +12,7 @@ PyQt5 based calculator - Used for practice
 1. pyqt5 모듈 설치 (python -m pip install pyqt5)
 2. 파이썬 파일 실행 (python calculator_main.py)
 
-##Features
+## Features
 
 The calculator provides:
 - 기본 산술 연산: 덧셈, 뺄셈, 곱셈, 나눗셈.
