@@ -16,14 +16,13 @@ class Main(QDialog):
         layout_equation_solution = QFormLayout()
 
         ### 수식 입력과 답 출력을 위한 LineEdit 위젯 생성
-        label_equation = QLabel("Equation: ")
-        label_solution = QLabel("Solution: ")
+        ### 기존의 label 삭제 후 입력과 출력을 통합한 새로운 LineEdit 위젯 생성
         self.equation = QLineEdit("")
         self.solution = QLineEdit("")
+        self.formula = QLineEdit("")
 
         ### layout_equation_solution 레이아웃에 수식, 답 위젯을 추가
-        layout_equation_solution.addRow(label_equation, self.equation)
-        layout_equation_solution.addRow(label_solution, self.solution)
+        layout_equation_solution.addRow(self.formula)
 
         ### 사칙연상 버튼 생성
         button_plus = QPushButton("+")
