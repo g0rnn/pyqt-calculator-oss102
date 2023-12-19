@@ -9,5 +9,20 @@ PyQt5 based calculator - Used for practice
 
 ## Getting started
 
-* pyqt5 모듈 설치 (python -m pip install pyqt5)
-* 파이썬 파일 실행 (python calculator_main.py)
+1. pyqt5 모듈 설치 (python -m pip install pyqt5)
+2. 파이썬 파일 실행 (python calculator_main.py)
+
+##Features
+
+The calculator provides:
+- 기본 산술 연산: 덧셈, 뺄셈, 곱셈, 나눗셈.
+- 단항 연산: 제곱근, 지수화 등
+- 이진 연산: 두 개의 피연산자 연산 처리.
+
+## Usage
+
+- 숫자를 입력하고 기본적인 산술 연산 수행.
+- 제곱과 같은 특정 계산을 위해 단항 연산자 활용.
+- 중위 표기법을 사용하므로 형식에 맞게 이항 연산을 수행.
+
+Feel free to contribute, suggest improvements, or report any issues by creating pull requests or raising issues.
