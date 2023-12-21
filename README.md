@@ -25,4 +25,7 @@ The calculator provides:
 - 제곱과 같은 특정 계산을 위해 단항 연산자 활용.
 - 중위 표기법을 사용하므로 형식에 맞게 이항 연산을 수행.
 
+## Branches
+* 각 브런치의 commit내역을 확인할 수 있도록 삭제하지 않았습니다.
+
 Feel free to contribute, suggest improvements, or report any issues by creating pull requests or raising issues.
