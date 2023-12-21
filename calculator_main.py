@@ -10,7 +10,6 @@ class Main(QDialog):
         main_layout = QVBoxLayout()
 
         ### 각 위젯을 배치할 레이아웃을 미리 만들어 둠
-        layout_clear = QHBoxLayout()
         layout_number = QGridLayout()
         layout_formula = QFormLayout()
 
@@ -37,10 +36,10 @@ class Main(QDialog):
         button_modulo.clicked.connect(lambda state, operation = "%": self.button_operation_clicked(operation))
 
         ### 사칙연산 버튼을 layout_operation 레이아웃에 추가
-        layout_number.addWidget(button_plus, 3, 4)
-        layout_number.addWidget(button_minus, 2, 4)
-        layout_number.addWidget(button_product, 1, 4)
-        layout_number.addWidget(button_division, 0, 4)
+        layout_number.addWidget(button_plus, 4, 3)
+        layout_number.addWidget(button_minus, 3, 3)
+        layout_number.addWidget(button_product, 2, 3)
+        layout_number.addWidget(button_division, 1, 3)
 
         ### =, clear, backspace 버튼 생성
         button_equal = QPushButton("=")
@@ -55,13 +54,27 @@ class Main(QDialog):
         button_backspace.clicked.connect(self.button_backspace_clicked)
 
         ### =, clear, backspace 버튼을 layout_clear 레이아웃에 추가
-        layout_clear.addWidget(button_modulo)
-        layout_clear.addWidget(button_CE)
-        layout_clear.addWidget(button_clear)
-        layout_clear.addWidget(button_backspace)
-        layout_number.addWidget(button_equal, 4, 4)
+        layout_number.addWidget(button_modulo, 0, 0)
+        layout_number.addWidget(button_CE, 0, 1)
+        layout_number.addWidget(button_clear, 0, 2)
+        layout_number.addWidget(button_backspace, 0, 3)
+        layout_number.addWidget(button_equal, 5, 3)
         
-
+        ### 제곱, 제곱근, 역수 버튼 생성
+        button_recip = QPushButton("1/x")
+        button_pow = QPushButton("x^2")
+        button_root = QPushButton("√")
+        
+        ### 제곱, 제곱근, 역수 버튼 클릭 시 시그널 설정
+        button_recip.clicked.connect(self.button_equal_clicked)
+        button_pow.clicked.connect(self.button_equal_clicked)
+        button_root.clicked.connect(self.button_equal_clicked)
+        
+        ### 제곱, 제곱근, 역수 버튼을 layout_number에 추가
+        layout_number.addWidget(button_recip, 1, 0)
+        layout_number.addWidget(button_pow, 1, 1)
+        layout_number.addWidget(button_root, 1, 2)
+        
         ### 숫자 버튼 생성하고, layout_number 레이아웃에 추가
         ### 각 숫자 버튼을 클릭했을 때, 숫자가 수식창에 입력 될 수 있도록 시그널 설정
         number_button_dict = {}
@@ -73,23 +86,22 @@ class Main(QDialog):
                 ### x와 y에 저장되는 값을 변경하여 올바르게 배치
                 x = (9-number) // 3
                 y = (number-1) % 3
-                layout_number.addWidget(number_button_dict[number], x+1, y)
+                layout_number.addWidget(number_button_dict[number], x+2, y)
             elif number==0:
-                layout_number.addWidget(number_button_dict[number], 4, 1)
+                layout_number.addWidget(number_button_dict[number], 5, 1)
 
         ### 소숫점 버튼과 00 버튼을 입력하고 시그널 설정
         button_dot = QPushButton(".")
         button_dot.clicked.connect(lambda state, num = ".": self.number_button_clicked(num))
-        layout_number.addWidget(button_dot, 4, 2)
+        layout_number.addWidget(button_dot, 5, 2)
 
         ### 00 -> +/-버튼으로 수정
         button_plus_minus = QPushButton("+/-")
         button_plus_minus.clicked.connect(lambda state, num = "*-1": self.number_button_clicked(num))
-        layout_number.addWidget(button_plus_minus, 4, 0)
+        layout_number.addWidget(button_plus_minus, 5, 0)
 
         ### 각 레이아웃을 main_layout 레이아웃에 추가
         main_layout.addLayout(layout_formula)
-        main_layout.addLayout(layout_clear)
         main_layout.addLayout(layout_number)
 
         self.setLayout(main_layout)
