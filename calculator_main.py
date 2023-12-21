@@ -66,9 +66,9 @@ class Main(QDialog):
         button_root = QPushButton("√")
         
         ### 제곱, 제곱근, 역수 버튼 클릭 시 시그널 설정
-        button_recip.clicked.connect(self.button_equal_clicked)
-        button_pow.clicked.connect(self.button_equal_clicked)
-        button_root.clicked.connect(self.button_equal_clicked)
+        button_recip.clicked.connect(lambda state, operation = "**(-1)": self.button_unary_operation_cliked(operation))
+        button_pow.clicked.connect(lambda state, operation = "**2": self.button_unary_operation_cliked(operation))
+        button_root.clicked.connect(lambda state, operation = "**(1/2)": self.button_unary_operation_cliked(operation))
         
         ### 제곱, 제곱근, 역수 버튼을 layout_number에 추가
         layout_number.addWidget(button_recip, 1, 0)
@@ -97,7 +97,7 @@ class Main(QDialog):
 
         ### 00 -> +/-버튼으로 수정
         button_plus_minus = QPushButton("+/-")
-        button_plus_minus.clicked.connect(lambda state, num = "*-1": self.number_button_clicked(num))
+        button_plus_minus.clicked.connect(lambda state, operation = "*-1": self.button_unary_operation_cliked(operation))
         layout_number.addWidget(button_plus_minus, 5, 0)
 
         ### 각 레이아웃을 main_layout 레이아웃에 추가
@@ -132,6 +132,12 @@ class Main(QDialog):
         equation = self.formula.text()
         equation = equation[:-1]
         self.formula.setText(equation)
+        
+    def button_unary_operation_cliked(self, operation):
+        equation = self.formula.text()
+        equation += operation
+        self.formula.setText(equation)
+        self.button_equal_clicked()
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
