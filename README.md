@@ -9,8 +9,10 @@ PyQt5 based calculator - Used for practice
 
 ## Getting started
 
-1. pyqt5 모듈 설치 (python -m pip install pyqt5)
-2. 파이썬 파일 실행 (python calculator_main.py)
+1. pyqt5 모듈 설치
+   -> python -m pip install pyqt5
+3. 파이썬 파일 실행
+   -> python calculator_main.py
 
 ## Features
 
